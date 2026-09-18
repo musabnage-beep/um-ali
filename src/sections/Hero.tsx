@@ -43,7 +43,7 @@ export function Hero() {
       >
         <Figure
           src="/images/hero.webp"
-          alt="تفاصيل من أتيليه أم علي: يدان تعملان على قماش أثناء الخياطة"
+          alt="أقمشة ملفوفة ومرتبة على رفوف داخل ورشة خياطة"
           priority
           sizes="100vw"
           className="size-full"
