@@ -23,86 +23,92 @@ export const galleryCategories: GalleryCategory[] = [
 ]
 
 /**
- * Portfolio items. `src` paths are reserved for the atelier's own photographs —
- * until the real files are added, an on-brand placeholder frame is rendered
- * instead. No stock imagery is presented as real work.
+ * Portfolio grid. The current images are generic, licensed photographs of
+ * tailoring work — see `public/images/README.md` for sources. Titles and alt
+ * text therefore describe the craft, not specific pieces made by the atelier;
+ * swap in the real photographs (same filenames) and these can become the
+ * actual piece names.
  */
 export const galleryItems: GalleryItem[] = [
   {
     id: 'g01',
-    category: 'tafseel',
-    title: 'عباءة مفصّلة',
-    alt: 'عباءة مفصّلة بقصّة مستقيمة وتشطيب يدوي',
+    category: 'occasions',
+    title: 'فستان سهرة',
+    alt: 'فستان سهرة مخملي معروض على مانيكان',
     src: '/images/gallery-01.webp',
     aspect: 'portrait',
   },
   {
     id: 'g02',
     category: 'embroidery',
-    title: 'تطريز ذهبي',
-    alt: 'تفاصيل تطريز ذهبي على قماش فاتح',
+    title: 'بكرات وخيوط',
+    alt: 'بكرات خيوط خشبية مرتّبة على قماش كتّاني',
     src: '/images/gallery-02.webp',
     aspect: 'square',
   },
   {
     id: 'g03',
-    category: 'occasions',
-    title: 'فستان سهرة',
-    alt: 'فستان سهرة طويل معلّق على المانيكان',
+    category: 'tafseel',
+    title: 'داخل الورشة',
+    alt: 'ورشة خياطة برفوف ملابس وضوء نهاري',
     src: '/images/gallery-03.webp',
     aspect: 'landscape',
   },
   {
     id: 'g04',
     category: 'alterations',
-    title: 'ضبط مقاس',
-    alt: 'ضبط مقاس الخصر بدبابيس قبل الخياطة',
+    title: 'تثبيت الأزرار',
+    alt: 'تثبيت زر بالإبرة على قطعة قماش داكنة',
     src: '/images/gallery-04.webp',
     aspect: 'square',
   },
   {
     id: 'g05',
     category: 'tafseel',
-    title: 'قفطان صيفي',
-    alt: 'قفطان صيفي بقماش خفيف وألوان دافئة',
+    title: 'رسم الباترون',
+    alt: 'رسم باترون على ورق القص قبل التفصيل',
     src: '/images/gallery-05.webp',
     aspect: 'portrait',
   },
   {
     id: 'g06',
     category: 'embroidery',
-    title: 'زخرفة الأكمام',
-    alt: 'زخرفة مطرّزة على طرف الكم',
+    title: 'خيوط ذهبية',
+    alt: 'بكرات خيوط بلون ذهبي مرتّبة على رف',
     src: '/images/gallery-06.webp',
     aspect: 'landscape',
   },
   {
     id: 'g07',
-    category: 'occasions',
-    title: 'إطلالة عروس',
-    alt: 'تفاصيل إطلالة عروس بتشطيب دقيق',
+    category: 'alterations',
+    title: 'قياس وضبط',
+    alt: 'شريط قياس ممدود على جاكيت منسوج',
     src: '/images/gallery-07.webp',
     aspect: 'portrait',
   },
   {
     id: 'g08',
-    category: 'alterations',
-    title: 'إعادة تشكيل',
-    alt: 'إعادة تشكيل قطعة قديمة بقصّة جديدة',
+    category: 'occasions',
+    title: 'تفاصيل الدانتيل',
+    alt: 'تفاصيل دانتيل على ذيل فستان عاجي',
     src: '/images/gallery-08.webp',
     aspect: 'square',
   },
   {
     id: 'g09',
     category: 'tafseel',
-    title: 'طقم مكوّن من قطعتين',
-    alt: 'طقم من قطعتين بقماش بيج ناعم',
+    title: 'على ماكينة الخياطة',
+    alt: 'خياطة قطعة قماش على ماكينة الخياطة',
     src: '/images/gallery-09.webp',
     aspect: 'landscape',
   },
 ]
 
-/** Instagram grid. Replace with real post images and their permalinks. */
+/**
+ * Instagram teaser grid. The tiles currently hold generic licensed photos, so
+ * their alt text must not describe them as posts from the account. Once the
+ * real post images and permalinks are in, set `href` per tile.
+ */
 export type InstagramPost = {
   id: string
   src: string
@@ -111,12 +117,16 @@ export type InstagramPost = {
   href: string
 }
 
-export const instagramPosts: InstagramPost[] = Array.from({ length: 6 }, (_, i) => {
+const instagramAlts = [
+  'ورشة خياطة برفوف ملابس',
+  'رسم تصميم قطعة على الورق',
+  'بطاقات عيّنات أقمشة بألوان مختلفة',
+  'بكرات خيوط خشبية على قماش كتّاني',
+  'أدوات الخياطة مرتّبة على قماش',
+  'يدان تعملان على قماش منسوج',
+]
+
+export const instagramPosts: InstagramPost[] = instagramAlts.map((alt, i) => {
   const n = String(i + 1).padStart(2, '0')
-  return {
-    id: `ig-${n}`,
-    src: `/images/instagram-${n}.webp`,
-    alt: `منشور من حساب أم علي على إنستقرام رقم ${i + 1}`,
-    href: '',
-  }
+  return { id: `ig-${n}`, src: `/images/instagram-${n}.webp`, alt, href: '' }
 })

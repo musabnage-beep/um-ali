@@ -16,7 +16,7 @@ export const about = {
     { icon: HeartHandshake, title: 'خدمة مخصصة', text: 'متابعة شخصية لطلبكِ من أول فكرة حتى الاستلام.' },
   ] satisfies { icon: LucideIcon; title: string; text: string }[],
   image: '/images/about.webp',
-  imageAlt: 'تفاصيل العمل داخل أتيليه أم علي',
+  imageAlt: 'يدان توجّهان قماشًا عاجيًا على ماكينة الخياطة',
 }
 
 /** "لماذا نحن؟" — four short, honest promises. */

@@ -14,7 +14,7 @@ export function InstagramFeed() {
         <SectionHeading
           eyebrow={business.instagramHandle}
           title="تابعينا على إنستقرام"
-          subtitle="مختارات من الحساب. لعرض كل الجديد، زوري الحساب مباشرة."
+          subtitle="الجديد يُنشر أولًا على الحساب — زوريه لمتابعة آخر الأعمال والتفاصيل."
         />
 
         <ul className="mt-12 grid grid-cols-2 gap-3 sm:mt-14 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
