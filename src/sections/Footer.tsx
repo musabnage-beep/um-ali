@@ -77,15 +77,20 @@ export function Footer() {
             {details.map((row) => (
               <li key={row.text} className="flex items-center gap-2.5">
                 <ContactIcon kind={row.icon} className="size-4 shrink-0" />
+                {/* <bdi> isolates the value: a phone number has no strong
+                    character, so it resolves to LTR and its digit groups keep
+                    their order, while an Arabic address still resolves RTL. */}
                 {row.href ? (
                   <a
                     href={row.href}
                     className="inline-flex min-h-11 items-center transition-colors duration-300 hover:text-ivory"
                   >
-                    {row.text}
+                    <bdi>{row.text}</bdi>
                   </a>
                 ) : (
-                  <span className="py-2.5">{row.text}</span>
+                  <span className="py-2.5">
+                    <bdi>{row.text}</bdi>
+                  </span>
                 )}
               </li>
             ))}

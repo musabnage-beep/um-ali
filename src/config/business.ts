@@ -33,8 +33,8 @@ export const business: BusinessInfo = {
   instagramHandle: '@sewing_amali',
   instagram: 'https://www.instagram.com/sewing_amali/',
 
-  whatsapp: '',
-  phone: '',
+  whatsapp: '966546134033',
+  phone: '+966 54 613 4033',
   email: '',
   address: '',
   hours: '',

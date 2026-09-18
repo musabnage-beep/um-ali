@@ -86,12 +86,14 @@ export function CallToAction() {
               {details.map((detail) => (
                 <li key={detail.text} className="flex items-center gap-2">
                   <ContactIcon kind={detail.icon} className="size-4 text-goldsoft" />
+                  {/* See Footer: <bdi> keeps the phone number's digit groups
+                      in order inside the RTL document. */}
                   {detail.href ? (
                     <a href={detail.href} className="transition-colors hover:text-ivory">
-                      {detail.text}
+                      <bdi>{detail.text}</bdi>
                     </a>
                   ) : (
-                    <span>{detail.text}</span>
+                    <bdi>{detail.text}</bdi>
                   )}
                 </li>
               ))}
