@@ -38,7 +38,7 @@ export const business: BusinessInfo = {
   email: '',
   address: '',
   hours: '',
-  siteUrl: '',
+  siteUrl: 'https://um-ali.vercel.app',
 }
 
 /** Pre-filled first message so the client never starts from a blank chat. */
