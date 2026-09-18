@@ -1,0 +1,243 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   UM ALI — Design System
+   Editorial luxury atelier. Warm ivory, taupe, deep brown, soft gold.
+   ------------------------------------------------------------------ */
+
+@theme {
+  /* ---- Colour ---- */
+  --color-ivory: #f8f3ea;
+  --color-cream: #f1e7d8;
+  --color-sand: #e6d8c5;
+  --color-taupe: #b9a893;
+  /* Muted body copy. Darkened from #82766b so it clears 4.5:1 on ivory and cream. */
+  --color-mocha: #726558;
+  --color-bark: #5a4032;
+  --color-espresso: #2b201a;
+  --color-ink: #1b1411;
+  /* `gold` is the decorative accent (hairlines, borders, dark backgrounds).
+     `goldink` is the readable variant for gold-coloured text on light surfaces. */
+  --color-gold: #b99a70;
+  --color-goldink: #7d6240;
+  /* `goldsoft` is gold for dark surfaces. Lightened from #d8bf9d so the hero
+     eyebrow clears 4.5:1 even if a bright photo sits behind the scrim. */
+  --color-goldsoft: #e6d2b5;
+
+  /* ---- Typography ---- */
+  --font-arabic: 'IBM Plex Sans Arabic', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+
+  /* ---- Fluid type scale ---- */
+  --text-hero: clamp(2.75rem, 9vw, 6.5rem);
+  --text-display: clamp(2.25rem, 5.2vw, 4.25rem);
+  --text-title: clamp(1.5rem, 2.6vw, 2.125rem);
+  --text-lead: clamp(1rem, 1.35vw, 1.1875rem);
+
+  /* ---- Motion ---- */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- Elevation (soft, never heavy) ---- */
+  --shadow-card: 0 1px 2px rgb(43 32 26 / 0.04), 0 12px 32px -12px rgb(43 32 26 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(43 32 26 / 0.05), 0 22px 44px -16px rgb(43 32 26 / 0.2);
+}
+
+/* ------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    min-width: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* offset so anchored sections clear the sticky navbar */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-ivory);
+    color: var(--color-espresso);
+    font-family: var(--font-arabic);
+    line-height: 1.85;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* The page is one vertical story: never allow sideways drift. */
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* On-brand focus ring, keyboard users only. */
+  :focus-visible {
+    outline: 2px solid var(--color-bark);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-goldsoft);
+    color: var(--color-ink);
+  }
+
+  /* Latin brand words stay LTR inside the RTL document. */
+  [lang='en'] {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Utilities
+   ------------------------------------------------------------------ */
+
+@utility shell {
+  width: 100%;
+  max-width: 82.5rem; /* 1320px — stops 1920 screens from over-stretching */
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+/* Hairline gold rule used as a divider / decorative accent. */
+@utility hairline {
+  height: 1px;
+  border: 0;
+  background-image: linear-gradient(
+    to left,
+    transparent,
+    var(--color-gold) 22%,
+    var(--color-gold) 78%,
+    transparent
+  );
+  opacity: 0.55;
+}
+
+/* Fine woven texture — an atelier surface, not a flat "AI gradient". */
+@utility weave {
+  background-image:
+    repeating-linear-gradient(45deg, rgb(185 154 112 / 0.05) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(-45deg, rgb(90 64 50 / 0.035) 0 1px, transparent 1px 7px);
+}
+
+/* ------------------------------------------------------------------
+   Component primitives
+   ------------------------------------------------------------------ */
+
+@layer components {
+  /* Nav link with a gold underline that draws in from the leading edge. */
+  .nav-link {
+    position: relative;
+    padding-block: 0.25rem;
+    font-size: 0.9375rem;
+    transition: color 0.3s var(--ease-luxe);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-luxe);
+  }
+
+  .nav-link:hover::after,
+  .nav-link[data-active='true']::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Editorial card surface. Restrained radius, hairline border. */
+  .surface {
+    background-color: color-mix(in srgb, var(--color-ivory) 86%, white);
+    border: 1px solid color-mix(in srgb, var(--color-taupe) 42%, transparent);
+    border-radius: 2px;
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 0.5s var(--ease-luxe),
+      box-shadow 0.5s var(--ease-luxe),
+      border-color 0.5s var(--ease-luxe);
+  }
+
+  /* Media frame with a slow zoom driven by the parent `group`. */
+  .media {
+    overflow: hidden;
+    background-color: var(--color-sand);
+  }
+
+  .media > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.9s var(--ease-luxe);
+  }
+
+  .group:hover .media > img {
+    transform: scale(1.06);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion — honour the OS preference everywhere.
+   ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
