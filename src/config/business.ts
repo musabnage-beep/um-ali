@@ -13,6 +13,8 @@ export type BusinessInfo = {
   address: string
   /** e.g. "السبت – الخميس · ١٠ص – ٨م" */
   hours: string
+  /** Shipping/delivery coverage, e.g. "نوصل لجميع مناطق المملكة". */
+  delivery: string
   /** Absolute origin of the deployed site, for the canonical URL. */
   siteUrl: string
 }
@@ -36,8 +38,9 @@ export const business: BusinessInfo = {
   whatsapp: '966546134033',
   phone: '+966 54 613 4033',
   email: '',
-  address: '',
-  hours: '',
+  address: 'بريدة — القصيم',
+  hours: '٨ صباحًا – ١١ مساءً',
+  delivery: 'نوصل لجميع مناطق المملكة بسعر رمزي',
   siteUrl: 'https://um-ali.vercel.app',
 }
 
@@ -66,7 +69,7 @@ export function orderLink(message?: string): { href: string; channel: 'whatsapp'
 }
 
 export type ContactRow = {
-  icon: 'phone' | 'mail' | 'map' | 'clock'
+  icon: 'phone' | 'mail' | 'map' | 'clock' | 'truck'
   text: string
   /** Empty when the value is not linkable (an address, opening hours). */
   href: string
@@ -83,5 +86,6 @@ export function contactRows(): ContactRow[] {
   }
   if (business.address) rows.push({ icon: 'map', text: business.address, href: '' })
   if (business.hours) rows.push({ icon: 'clock', text: business.hours, href: '' })
+  if (business.delivery) rows.push({ icon: 'truck', text: business.delivery, href: '' })
   return rows
 }

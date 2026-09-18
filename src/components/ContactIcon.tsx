@@ -1,4 +1,4 @@
-import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { Clock, Mail, MapPin, Phone, Truck } from 'lucide-react'
 import type { ContactRow } from '@/config/business'
 
 const icons = {
@@ -6,6 +6,7 @@ const icons = {
   mail: Mail,
   map: MapPin,
   clock: Clock,
+  truck: Truck,
 } as const
 
 /** Maps a contact row's kind to its Lucide glyph. */
