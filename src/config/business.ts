@@ -41,7 +41,7 @@ export const business: BusinessInfo = {
   address: 'بريدة — القصيم',
   hours: '٨ صباحًا – ١١ مساءً',
   delivery: 'نوصل لجميع مناطق المملكة بسعر رمزي',
-  siteUrl: 'https://um-ali.vercel.app',
+  siteUrl: 'https://musabnage-beep.github.io/um-ali',
 }
 
 /** Pre-filled first message so the client never starts from a blank chat. */
