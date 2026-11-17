@@ -5,6 +5,7 @@ import { Reveal } from '@/components/Reveal'
 import { InstagramIcon } from '@/components/icons/InstagramIcon'
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon'
 import { business, contactRows, orderLink } from '@/config/business'
+import { asset } from '../lib/asset'
 
 export function CallToAction() {
   const order = orderLink()
@@ -17,7 +18,7 @@ export function CallToAction() {
       className="relative isolate overflow-hidden bg-espresso py-24 sm:py-32"
     >
       <Figure
-        src="/images/fabric.webp"
+        src={asset('/images/fabric.webp')}
         alt=""
         className="absolute inset-0 -z-20 size-full"
         imgClassName="size-full object-cover"

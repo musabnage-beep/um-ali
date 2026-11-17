@@ -4,6 +4,7 @@ import { ArrowLeft, MoveDown } from 'lucide-react'
 import { Figure } from '@/components/Figure'
 import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon'
 import { business, orderLink } from '@/config/business'
+import { asset } from '../lib/asset'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -42,7 +43,7 @@ export function Hero() {
         className="absolute inset-0 -z-20"
       >
         <Figure
-          src="/images/hero.webp"
+          src={asset('/images/hero.webp')}
           alt="أقمشة ملفوفة ومرتبة على رفوف داخل ورشة خياطة"
           priority
           sizes="100vw"

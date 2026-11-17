@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 export type GalleryCategory = {
   id: string
   label: string
@@ -35,7 +36,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'occasions',
     title: 'فستان سهرة',
     alt: 'فستان سهرة مخملي معروض على مانيكان',
-    src: '/images/gallery-01.webp',
+    src: asset('/images/gallery-01.webp'),
     aspect: 'portrait',
   },
   {
@@ -43,7 +44,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'embroidery',
     title: 'بكرات وخيوط',
     alt: 'بكرات خيوط خشبية مرتّبة على قماش كتّاني',
-    src: '/images/gallery-02.webp',
+    src: asset('/images/gallery-02.webp'),
     aspect: 'square',
   },
   {
@@ -51,7 +52,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'tafseel',
     title: 'داخل الورشة',
     alt: 'ورشة خياطة برفوف ملابس وضوء نهاري',
-    src: '/images/gallery-03.webp',
+    src: asset('/images/gallery-03.webp'),
     aspect: 'landscape',
   },
   {
@@ -59,7 +60,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'alterations',
     title: 'تثبيت الأزرار',
     alt: 'تثبيت زر بالإبرة على قطعة قماش داكنة',
-    src: '/images/gallery-04.webp',
+    src: asset('/images/gallery-04.webp'),
     aspect: 'square',
   },
   {
@@ -67,7 +68,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'tafseel',
     title: 'رسم الباترون',
     alt: 'رسم باترون على ورق القص قبل التفصيل',
-    src: '/images/gallery-05.webp',
+    src: asset('/images/gallery-05.webp'),
     aspect: 'portrait',
   },
   {
@@ -75,7 +76,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'embroidery',
     title: 'خيوط ذهبية',
     alt: 'بكرات خيوط بلون ذهبي مرتّبة على رف',
-    src: '/images/gallery-06.webp',
+    src: asset('/images/gallery-06.webp'),
     aspect: 'landscape',
   },
   {
@@ -83,7 +84,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'alterations',
     title: 'قياس وضبط',
     alt: 'شريط قياس ممدود على جاكيت منسوج',
-    src: '/images/gallery-07.webp',
+    src: asset('/images/gallery-07.webp'),
     aspect: 'portrait',
   },
   {
@@ -91,7 +92,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'occasions',
     title: 'تفاصيل الدانتيل',
     alt: 'تفاصيل دانتيل على ذيل فستان عاجي',
-    src: '/images/gallery-08.webp',
+    src: asset('/images/gallery-08.webp'),
     aspect: 'square',
   },
   {
@@ -99,7 +100,7 @@ export const galleryItems: GalleryItem[] = [
     category: 'tafseel',
     title: 'على ماكينة الخياطة',
     alt: 'خياطة قطعة قماش على ماكينة الخياطة',
-    src: '/images/gallery-09.webp',
+    src: asset('/images/gallery-09.webp'),
     aspect: 'landscape',
   },
 ]
@@ -128,5 +129,5 @@ const instagramAlts = [
 
 export const instagramPosts: InstagramPost[] = instagramAlts.map((alt, i) => {
   const n = String(i + 1).padStart(2, '0')
-  return { id: `ig-${n}`, src: `/images/instagram-${n}.webp`, alt, href: '' }
+  return { id: `ig-${n}`, src: asset(`/images/instagram-${n}.webp`), alt, href: '' }
 })

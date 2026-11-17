@@ -1,5 +1,6 @@
 import { Gem, HeartHandshake, MessageCircle, Package, ScanLine, Sparkles, Stamp } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { asset } from '../lib/asset'
 
 /** Editorial copy for the About section. Edit freely — no component changes needed. */
 export const about = {
@@ -15,7 +16,7 @@ export const about = {
     { icon: ScanLine, title: 'دقة في التفاصيل', text: 'مقاسات مضبوطة وحواشٍ نظيفة من الداخل والخارج.' },
     { icon: HeartHandshake, title: 'خدمة مخصصة', text: 'متابعة شخصية لطلبكِ من أول فكرة حتى الاستلام.' },
   ] satisfies { icon: LucideIcon; title: string; text: string }[],
-  image: '/images/about.webp',
+  image: asset('/images/about.webp'),
   imageAlt: 'يدان توجّهان قماشًا عاجيًا على ماكينة الخياطة',
 }
 
